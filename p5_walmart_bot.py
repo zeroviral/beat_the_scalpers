@@ -97,7 +97,7 @@ class P5Bot():
     @staticmethod
     def click_button(xpath):
         try:
-            # time.sleep(1.5)
+            time.sleep(2)
             driver.find_element_by_xpath(xpath).click()
         except NoSuchElementException:
             print("Element not found: " + xpath)
@@ -119,13 +119,13 @@ class P5Bot():
 if __name__ == "__main__":
     try:
         driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver.implicitly_wait(60)
+        # driver.implicitly_wait(60)
 
         # Digital edition
-        # driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
+        driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
 
         # Physical edition
-        driver.get('https://www.walmart.com/ip/PlayStation-5-Console/363472942')
+        # driver.get('https://www.walmart.com/ip/PlayStation-5-Console/363472942')
 
         # Test URL
         # driver.get('https://www.walmart.com/ip/Apple-AirPods-Pro/520468661')
