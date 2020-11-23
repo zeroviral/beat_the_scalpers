@@ -120,7 +120,6 @@ if __name__ == "__main__":
     try:
         driver = webdriver.Chrome(ChromeDriverManager().install())
         driver.implicitly_wait(5)
-        # Replace this link with a new value for the link to the version you want
 
         # Digital edition
         # driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
