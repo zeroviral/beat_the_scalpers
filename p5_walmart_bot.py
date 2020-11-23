@@ -119,7 +119,7 @@ class P5Bot():
 if __name__ == "__main__":
     try:
         driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver.implicitly_wait(5)
+        driver.implicitly_wait(60)
 
         # Digital edition
         # driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
