@@ -56,7 +56,7 @@ class P5Bot():
         print_list.append(cc_expiry_year)
         print_list.append(cvv)
 
-        print("Current values: " + str(print_list))
+        print("Current values parsed from config.ini: " + str(print_list))
 
         if not self.verify_if_available(self.not_available_message):
             driver.quit()
@@ -119,16 +119,19 @@ class P5Bot():
 if __name__ == "__main__":
     try:
         driver = webdriver.Chrome(ChromeDriverManager().install())
-        # driver.implicitly_wait(60)
+
+        # Wait for 2 minutes, so that if a captcha appears then we can
+        # manually override.
+        driver.implicitly_wait(120)
 
         # Digital edition
-        driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
+        # driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
 
         # Physical edition
         # driver.get('https://www.walmart.com/ip/PlayStation-5-Console/363472942')
 
         # Test URL
-        # driver.get('https://www.walmart.com/ip/Apple-AirPods-Pro/520468661')
+        driver.get('https://www.walmart.com/ip/Apple-AirPods-Pro/520468661')
         time.sleep(3)
 
         ps5bot = P5Bot()
