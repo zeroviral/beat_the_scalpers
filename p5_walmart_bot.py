@@ -96,14 +96,13 @@ class P5Bot():
 
     @staticmethod
     def click_button(xpath):
-        try:
-            time.sleep(2)
-            driver.find_element_by_xpath(xpath).click()
-        except NoSuchElementException:
-            print("Element not found: " + xpath)
-            print("\nExiting program...")
-            driver.quit()
-            exit(1)
+        while driver.implicitly_wait(120):
+            try:
+                time.sleep(1.5)
+                driver.find_element_by_xpath(xpath).click()
+            except NoSuchElementException:
+                print("Element not found: " + xpath)
+                print("Trying again...")
 
     def enter_data(self, field, data):
         try:
@@ -125,14 +124,13 @@ if __name__ == "__main__":
         driver.implicitly_wait(120)
 
         # Digital edition
-        # driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
+        driver.get('https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815')
 
         # Physical edition
         # driver.get('https://www.walmart.com/ip/PlayStation-5-Console/363472942')
 
         # Test URL
-        driver.get('https://www.walmart.com/ip/Apple-AirPods-Pro/520468661')
-        time.sleep(3)
+        # driver.get('https://www.walmart.com/ip/Apple-AirPods-Pro/520468661')
 
         ps5bot = P5Bot()
         ps5bot.order()
